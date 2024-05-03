@@ -22,7 +22,7 @@ server.use(cors());
 server.use('/user', routerUser);
 
 //ejecucion del servidor
-const PORT = 5001;
+const PORT = process.env.PORT;
 server.listen(PORT, () => {
   console.log(`Escuchando puerto http://localhost:${PORT}`);
 });
