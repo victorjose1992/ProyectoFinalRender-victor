@@ -80,5 +80,12 @@ const modifyProfile = async (req, res) => {
  return res.status(200).json({ data: updateUser })
 }
 
+const getUsers = async (req, res) => {
+  try{
+     const userDB = await User.find();// este punto es q busca en la base de dato
+     return res.json(userDB);
+  } catch (error){}
+};
 
-module.exports = { register, login, modifyProfile };
+
+module.exports = { register, login, modifyProfile, getUsers };

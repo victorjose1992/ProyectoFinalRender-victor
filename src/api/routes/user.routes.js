@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { register, login, modifyProfile } = require('../controllers/user.controller');
+const { register, login, modifyProfile, getUsers } = require('../controllers/user.controller');
 const { isAuth } = require("../../middleware/auth")// ruta privada
 const upload = require("../../middleware/upload.file")
 
@@ -8,7 +8,7 @@ const upload = require("../../middleware/upload.file")
 //router.post('/register', upload.single("image"), register);
 router.post('/register', register);
 router.post("/login", login);
-router.put("/update", [isAuth], modifyProfile)
-
+router.put("/update", [isAuth], modifyProfile);
+router.get("/alluser", [isAuth], getUsers);
 
 module.exports = router;
